@@ -20,7 +20,7 @@ public class TestController {
     // Basit test endpoint
     @GetMapping("/hello")
     public String hello() {
-        return "Backend çalışıyor kolay gelsin 🚀";
+        return "Backend çalışıyor kolay gelsinn 🚀";
     }
 
     // Tüm öğrencileri listele
