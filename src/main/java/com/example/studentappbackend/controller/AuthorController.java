@@ -17,7 +17,7 @@ public class AuthorController {
     }
 //deneme
     // POST /authors -> yazar ekle
-    @PostMapping
+    @PostMapping("/create")
     public Author createAuthor(@RequestBody Author author) {
         return authorService.createAuthor(author);
     }
