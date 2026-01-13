@@ -27,15 +27,20 @@ public class AuthorController {
     public List<Author> getAllAuthors() {
         return authorService.getAllAuthors();
     }
-    // Basit test endpoint
-    @GetMapping("/author")
-    public String author() {
-        return "Backend çalışıyor kolay gelsinn 🚀";
-    }
 
+    //güncelleme
+    @PutMapping("/update/{id}")
+    public Author updateAuthor(@PathVariable Long id, @RequestBody Author author ){
+        return authorService.updateAuthor(id, author);
+    }
     // GET /authors/{id} -> id'ye göre yazar
     @GetMapping("/{id}")
     public Author getAuthorById(@PathVariable Long id) {
         return authorService.getAuthorById(id);
+    }
+    // silme işlemi
+    @DeleteMapping("/delete/{id}")
+    public void  deleteAuthor(@PathVariable Long id){
+        authorService.deleteAuthor(id);
     }
 }

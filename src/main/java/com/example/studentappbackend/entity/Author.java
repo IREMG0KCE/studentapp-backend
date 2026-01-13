@@ -16,12 +16,13 @@ public class Author {
 
     @GeneratedValue(strategy =GenerationType.IDENTITY )
     private Long id;
-    public String authorName;
-    public String authorEmail;
+    private String authorName;
+    private String authorEmail;
     public int authorAge;
     // Bir yazarın birden fazla kitabı olabilir
     @OneToMany(mappedBy = "author")
     @JsonIgnore
-    public List<Books> books;
+    private List<Books> books;
+
 
 }

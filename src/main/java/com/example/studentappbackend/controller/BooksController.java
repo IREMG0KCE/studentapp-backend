@@ -29,12 +29,14 @@ public class BooksController {
     // GET /books -> tüm kitaplar
     @GetMapping
     public List<Books> getAllBooks() {
+
         return booksService.getAllBooks();
     }
 
     // GET /books/author/{authorId} -> yazara göre kitaplar
     @GetMapping("/author/{authorId}")
     public List<Books> getBooksByAuthor(@PathVariable Long authorId) {
+
         return booksService.getBooksByAuthor(authorId);
     }
 }
