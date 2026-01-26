@@ -35,4 +35,18 @@ public class BooksService {
     public List<Books> getAllBooks() {
         return booksRepository.findAll();
     }
+    public Books updateBook(Long id, Books updatedBook) {
+
+        Books existingBook = booksRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Güncellenecek kitap bulunamadı"));
+
+        // alanları güncelle
+        existingBook.setBooksName(updatedBook.getBooksName());
+        existingBook.setBooksPage(updatedBook.getBooksPage());
+        existingBook.setBooksType(updatedBook.getBooksType());
+
+
+        return booksRepository.save(existingBook);
+    }
+
 }

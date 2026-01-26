@@ -39,4 +39,12 @@ public class BooksController {
 
         return booksService.getBooksByAuthor(authorId);
     }
+
+    //kitap güncelleme
+    @PutMapping("/update/{id}")
+    public Books updateBook(@PathVariable Long id,
+                            @RequestBody Books book) {
+        return booksService.updateBook(id, book);
+    }
+
 }
