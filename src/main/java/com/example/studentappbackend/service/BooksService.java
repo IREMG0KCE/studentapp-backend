@@ -27,14 +27,6 @@ public class BooksService {
         book.setAuthor(author);//Foreign key burada bağlanıyor
         return booksRepository.save(book);
     }
-
-    public List<Books> getBooksByAuthor(Long authorId) {
-        return booksRepository.findByAuthorId(authorId);
-    }
-
-    public List<Books> getAllBooks() {
-        return booksRepository.findAll();
-    }
     public Books updateBook(Long id, Books updatedBook) {
 
         Books existingBook = booksRepository.findById(id)
@@ -48,5 +40,16 @@ public class BooksService {
 
         return booksRepository.save(existingBook);
     }
+    public List<Books> getBooksByAuthor(Long authorId) {
+        return booksRepository.findByAuthorId(authorId);
+    }
+    public List<Books> getAllBooks() {
+        return booksRepository.findAll();
+    }
+    public void deleteBook(Long id){
+        Books book = booksRepository.findById(id).orElseThrow(()-> new RuntimeException("silinecek veri bulunamadı"));
+        booksRepository.delete(book);
+    }
+
 
 }
